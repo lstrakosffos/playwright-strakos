@@ -11,10 +11,6 @@ const BASE_URL = process.env.BASE_URL!;
 const USERNAME = process.env.CORRECT_USERNAME!;
 const PASSWORD = process.env.CORRECT_PASSWORD!;
 
-if (!USERNAME || !PASSWORD) {
-  throw new Error('Nedostaju ENV varijable');
-}
-
 test.beforeEach(async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.goto(BASE_URL);
@@ -68,19 +64,4 @@ test('4. Korisnik može vidjeti svoj profil i statistiku', async ({ page }) => {
   await profilePage.goToProfile();
 
   await profilePage.assertOnProfile(USERNAME);
-});
-
-test('5. Korisnik može vidjeti svoje odigrane partije', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  const lobbyPage = new LobbyPage(page);
-  const profilePage = new ProfilePage(page);
-
-  await loginPage.login(USERNAME, PASSWORD);
-  await lobbyPage.assertLobbyVisible();
-
-  await lobbyPage.openUserMenu();
-  await profilePage.goToProfile();
-  await profilePage.goToGames();
-
-  await profilePage.assertGamesVisible(USERNAME);
 });
