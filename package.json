@@ -1,0 +1,17 @@
+{
+  "name": "pip",
+  "version": "1.0.0",
+  "description": "const usernameInput = page.locator('#form3-username');\r const passwordInput = page.locator('#form3-password');\r const submitButton = page.locator('button.submit.button');\r const errorMessage = page.locator('.error, .flash-error');\r const userMenu = page.locator('a[href=\"/@/Pankekiii\"]');\r const logoutButton = page.locator('a[href=\"/logout\"]');",
+  "main": "login.spec.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.8"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
